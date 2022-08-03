@@ -1,0 +1,151 @@
+@extends('layout')
+
+  
+
+@section('content')
+
+<main class="login-form">
+
+  <div class="cotainer">
+
+      <div class="row justify-content-center">
+
+          <div class="col-md-8">
+
+              <div class="card">
+
+                  <div class="card-header">Register</div>
+
+                  <div class="card-body">
+
+  
+
+                      <form action="{{ route('register.post') }}" method="POST">
+
+                          @csrf
+
+                          <div class="form-group row">
+
+                              <label for="nombre" class="col-md-4 col-form-label text-md-right">Nombre</label>
+
+                              <div class="col-md-6">
+
+                                  <input type="text" id="nombre" class="form-control" name="nombre" required autofocus>
+
+                                  @if ($errors->has('nombre'))
+
+                                      <span class="text-danger">{{ $errors->first('nombre') }}</span>
+
+                                  @endif
+
+                              </div>
+
+                          </div>
+
+                          <div class="form-group row">
+
+                            <label for="apellidos" class="col-md-4 col-form-label text-md-right">Apellidos</label>
+
+                            <div class="col-md-6">
+
+                                <input type="text" id="apellidos" class="form-control" name="apellidos" required autofocus>
+
+                                @if ($errors->has('apellidos'))
+
+                                    <span class="text-danger">{{ $errors->first('apellidos') }}</span>
+
+                                @endif
+
+                            </div>
+
+                        </div>
+
+  
+
+                          <div class="form-group row">
+
+                              <label for="correo" class="col-md-4 col-form-label text-md-right">Correo</label>
+
+                              <div class="col-md-6">
+
+                                  <input type="text" id="correo" class="form-control" name="correo" required autofocus>
+
+                                  @if ($errors->has('correo'))
+
+                                      <span class="text-danger">{{ $errors->first('correo') }}</span>
+
+                                  @endif
+
+                              </div>
+
+                          </div>
+
+  
+
+                          <div class="form-group row">
+
+                              <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+
+                              <div class="col-md-6">
+
+                                  <input type="password" id="password" class="form-control" name="password" required>
+
+                                  @if ($errors->has('password'))
+
+                                      <span class="text-danger">{{ $errors->first('password') }}</span>
+
+                                  @endif
+
+                              </div>
+
+                          </div>
+
+  
+
+                          <div class="form-group row">
+
+                              <div class="col-md-6 offset-md-4">
+
+                                  <div class="checkbox">
+
+                                      <label>
+
+                                          <input type="checkbox" name="remember"> Remember Me
+
+                                      </label>
+
+                                  </div>
+
+                              </div>
+
+                          </div>
+
+  
+
+                          <div class="col-md-6 offset-md-4">
+
+                              <button type="submit" class="btn btn-primary">
+
+                                  Registrar
+
+                              </button>
+
+                          </div>
+
+                      </form>
+
+                        
+
+                  </div>
+
+              </div>
+
+          </div>
+
+      </div>
+
+  </div>
+
+</main>
+
+@endsection
